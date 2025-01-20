@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">URL Shortener</h1>
+      <form method="POST" action="/">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="url">Enter URL</label>
+          <input
+            name="url"
+            type="url"
+            class="form-control"
+            id="url"
+            placeholder="Enter URL"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="expiry">Expiration (in hours)</label>
+          <input
+            name="expiry"
+            type="number"
+            class="form-control"
+            id="expiry"
+            placeholder="Default: 24 hours"
+            min="1"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Shorten</button>
+      </form>
+    </div>
+
+    {% if new_url %}
+    <div class="container mt-5">
+      <h2 class="text-center">Shortened URL</h2>
+      <p>
+        Shortened URL:
+        <a href="{{ new_url }}" target="_blank">{{ new_url }}</a>
+      </p>
+      <p>Expires At: {{ expires_at }}</p>
+    </div>
+    {% endif %}
+  </body>
+</html>
