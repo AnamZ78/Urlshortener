@@ -58,9 +58,3 @@ How to Use:
 1. Shorten URL: Enter a long URL, set a password/expiry, and click "Shorten."
 2. Access Shortened URL: Visit the shortened URL and enter a password if set.
 3. View Analytics: View access logs for each shortened URL.
-
-Contributing:
-Feel free to fork and create a pull request.
-
-License:
-MIT License
